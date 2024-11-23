@@ -5,9 +5,13 @@ pipeline {
     }
    stages{
     stage('CompileandRunSonarAnalysis') {
-            steps {	
-		sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-buggyapp_testing -Dsonar.organization=devsecops-buggyapp -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=4ac72bc77db33f644f2e03f1f871a3c8f2417fa2'
-			}
+            steps {  
+        sh '''mvn clean verify sonar:sonar 
+              -Dsonar.projectKey=varshitha-27_samplecode 
+              -Dsonar.organization=varshitha-27 
+              -Dsonar.host.url=https://sonarcloud.io 
+              -Dsonar.token=9be7e0831cf6ea39cee51ea57031e5ea2a221bbb'''
+      }
         } 
 
 	stage('RunSCAAnalysisUsingSnyk') {
